@@ -14,6 +14,11 @@ public class TurretShooter : MonoBehaviour
     [SerializeField]
     private float _projectileLifeTime = 10;
 
+    [SerializeField]
+    private AudioSource _audioSource;
+    [SerializeField]
+    private AudioClip _shootSound;
+
 
     private float _timeSinceLastShot = 0f;
     private bool _isShooting = false;
@@ -30,6 +35,11 @@ public class TurretShooter : MonoBehaviour
 
     private void ShootProjectile()
     {
+        if(_shootSound)
+        {
+            _audioSource.PlayOneShot(_shootSound);
+        }
+
         GameObject projectile = Instantiate(_projectile, _muzzleTransform.position, _muzzleTransform.rotation);
 
         Rigidbody body = projectile.GetComponent<Rigidbody>();
