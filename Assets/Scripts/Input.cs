@@ -2,9 +2,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent (typeof(TurretRotator))]
+[RequireComponent (typeof(TurretShooter))]
 public class Input : MonoBehaviour
 {
     [SerializeField] private TurretRotator _rotator;
+    [SerializeField] private TurretShooter _shooter;
 
     [Header("Настройки")]
     public float sensitivity = 0.5f; // Чувствительность
@@ -25,6 +27,11 @@ public class Input : MonoBehaviour
 
             (pitch, yaw) = _rotator.SetRotation(pitch, yaw);
         }
+    }
+
+    public void OnShoot(InputValue value)
+    {
+        _shooter.IsShooting = value.isPressed;
     }
 
     //float progress = 0f;
