@@ -16,6 +16,6 @@ public class DebugArrow : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        ForGizmo(gameObject.transform.position, (gameObject.transform.rotation * Vector3.forward)*0.3f, Color.red, 0.25f, 30);
+        ForGizmo(gameObject.transform.position, gameObject.transform.rotation * Vector3.forward * 0.3f, Color.red, 0.25f, 30);
     }
 }
