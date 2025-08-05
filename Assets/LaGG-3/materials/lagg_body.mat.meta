@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c3d9fa58906d5074f9da910f58d1a9df
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 140089
+  packageName: LaGG-3 "Black Death" WW2 fighter
+  packageVersion: 1.5
+  assetPath: Assets/LaGG-3/materials/lagg_body.mat
+  uploadId: 363879
