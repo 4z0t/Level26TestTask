@@ -341,3 +341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _forwardSpeedMult: 1.27
+  _decayTime: 5
+  _explosionForce: 200
+  _explodeOnGround: 0

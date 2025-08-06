@@ -8,6 +8,7 @@ public class CrashBehaviour : MonoBehaviour
     [SerializeField] private float _forwardSpeedMult;
     [SerializeField] private float _decayTime;
     [SerializeField] private float _explosionForce;
+    [SerializeField] private bool _explodeOnGround;
 
     private bool _exploded = false;
 
@@ -35,10 +36,6 @@ public class CrashBehaviour : MonoBehaviour
 
     protected virtual void OnImpactGround(Collision collision)
     {
-        if (_exploded)
-            return;
-        _exploded = true;
-
         foreach (Animator  anim in GetComponents<Animator>())
         {
             anim.enabled = false;
@@ -53,17 +50,29 @@ public class CrashBehaviour : MonoBehaviour
             Destroy(childTransform.gameObject, _decayTime);
         }
 
-        GetComponent<Rigidbody>()
-            .AddExplosionForce(_explosionForce, transform.position, 10, 0.5f, ForceMode.Impulse);
+        transform.DetachChildren();
+        var rb = GetComponent<Rigidbody>();
+        rb.AddExplosionForce(_explosionForce, transform.position, 10, 0.5f, ForceMode.Impulse);
 
         Destroy(gameObject, _decayTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("Terrain"))
+        if (_exploded)
+            return;
+
+        if (collision.collider.CompareTag("Terrain"))
         {
-            OnImpactGround(collision);
+            _exploded = true;
+            if(_explodeOnGround)
+            {
+                OnImpactGround(collision);
+            }
+            else
+            {
+                Destroy(gameObject, _decayTime);
+            }
         }
     }
 
