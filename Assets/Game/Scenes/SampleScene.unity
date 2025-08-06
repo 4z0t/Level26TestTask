@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 1447182773}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -394,6 +394,14 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 2146768839}
+    - target: {fileID: 1437940617992835439, guid: 2666ff01b27d05b42b0db7358f10b6ce, type: 3}
+      propertyPath: _decayTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437940617992835439, guid: 2666ff01b27d05b42b0db7358f10b6ce, type: 3}
+      propertyPath: _explosionForce
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4833190652692145988, guid: 2666ff01b27d05b42b0db7358f10b6ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 57.109207
@@ -623,13 +631,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 689865964536418147, guid: 990f945553d4f784982733f90a3cd4da, type: 3}
+      propertyPath: _decayTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 689865964536418147, guid: 990f945553d4f784982733f90a3cd4da, type: 3}
+      propertyPath: _explosionForce
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 1173718648325323949, guid: 990f945553d4f784982733f90a3cd4da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 37.18
       objectReference: {fileID: 0}
     - target: {fileID: 1173718648325323949, guid: 990f945553d4f784982733f90a3cd4da, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.03
+      value: 11.45
       objectReference: {fileID: 0}
     - target: {fileID: 1173718648325323949, guid: 990f945553d4f784982733f90a3cd4da, type: 3}
       propertyPath: m_LocalPosition.z
@@ -666,6 +682,10 @@ PrefabInstance:
     - target: {fileID: 2743460992418074302, guid: 990f945553d4f784982733f90a3cd4da, type: 3}
       propertyPath: m_Name
       value: Mi24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952121650640305534, guid: 990f945553d4f784982733f90a3cd4da, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

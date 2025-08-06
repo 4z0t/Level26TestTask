@@ -90,6 +90,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 6d79e9dda65db2742a966dc5019a3863, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7382073410907517170}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 6d79e9dda65db2742a966dc5019a3863, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 129269509787688605}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 6d79e9dda65db2742a966dc5019a3863, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1437940617992835439}
   m_SourcePrefab: {fileID: 100100000, guid: 6d79e9dda65db2742a966dc5019a3863, type: 3}
 --- !u!1 &8451471522884932951 stripped
 GameObject:
@@ -149,7 +155,7 @@ Rigidbody:
   m_GameObject: {fileID: 8451471522884932951}
   serializedVersion: 5
   m_Mass: 104.7
-  m_LinearDamping: 0
+  m_LinearDamping: 0.5
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -166,7 +172,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &449431198924717052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,3 +315,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &129269509787688605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8451471522884932951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79a3c9a67ecdff498c69a76e26d1b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+--- !u!114 &1437940617992835439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8451471522884932951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52159758043d0d2438eac05490cfb478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _forwardSpeedMult: 1.27
