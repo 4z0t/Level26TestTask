@@ -9,6 +9,7 @@ public class CrashBehaviour : MonoBehaviour
     [SerializeField] private float _forwardSpeedMult;
     [SerializeField] private float _decayTime;
     [SerializeField] private AudioResource _explosionSound;
+    [SerializeField] private GameObject _explosionEffect;
     [SerializeField] private bool _explodeOnGround;
     [SerializeField] private float _explosionForce;
 
@@ -39,9 +40,7 @@ public class CrashBehaviour : MonoBehaviour
     {
         var audio = GetComponent<AudioSource>();
         if (!audio)
-        {
             return;
-        }
 
         if (!_explosionSound)
         {
@@ -53,6 +52,16 @@ public class CrashBehaviour : MonoBehaviour
         audio.resource = _explosionSound;
         audio.Play();
     }
+
+    protected virtual void PlayImpactEffect()
+    {
+        if (!_explosionEffect)
+            return;
+
+        var effect = Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        Destroy(effect, _decayTime);
+    }
+
 
     protected virtual void OnImpactGround(Collision collision)
     {
@@ -88,6 +97,7 @@ public class CrashBehaviour : MonoBehaviour
                 OnImpactGround(collision);
             }
 
+            PlayImpactEffect();
             PlayImpactSound();
             Destroy(gameObject, _decayTime);
         }

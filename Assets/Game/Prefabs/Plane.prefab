@@ -345,8 +345,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _forwardSpeedMult: 1.27
   _decayTime: 5
-  _explosionForce: 200
+  _explosionSound: {fileID: 8300000, guid: 366f5e75189f34546a1cc7b47755c8d0, type: 3}
+  _explosionEffect: {fileID: 120972, guid: 866a4ac022f2a8e46b9f482d65401a64, type: 3}
   _explodeOnGround: 0
+  _explosionForce: 200
 --- !u!114 &2498396662202801362
 MonoBehaviour:
   m_ObjectHideFlags: 0
