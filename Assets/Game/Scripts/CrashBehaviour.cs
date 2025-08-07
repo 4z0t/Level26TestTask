@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Splines;
 
 [RequireComponent (typeof(Health))]
@@ -7,8 +8,9 @@ public class CrashBehaviour : MonoBehaviour
 {
     [SerializeField] private float _forwardSpeedMult;
     [SerializeField] private float _decayTime;
-    [SerializeField] private float _explosionForce;
+    [SerializeField] private AudioResource _explosionSound;
     [SerializeField] private bool _explodeOnGround;
+    [SerializeField] private float _explosionForce;
 
     private bool _exploded = false;
 
@@ -19,7 +21,6 @@ public class CrashBehaviour : MonoBehaviour
 
     private void OnDeath(object sender, Health health)
     {
-        Debug.Log("dead");
         SplineAnimate splineAnimate = GetComponent<SplineAnimate>();
         if (splineAnimate)
         {
@@ -32,6 +33,25 @@ public class CrashBehaviour : MonoBehaviour
                 rb.AddForce(transform.rotation * Vector3.forward * rb.mass * _forwardSpeedMult * speed, ForceMode.Impulse);
             }
         }
+    }
+
+    protected virtual void PlayImpactSound()
+    {
+        var audio = GetComponent<AudioSource>();
+        if (!audio)
+        {
+            return;
+        }
+
+        if (!_explosionSound)
+        {
+            audio.enabled = false;
+            return;
+        }
+
+        audio.loop = false;
+        audio.resource = _explosionSound;
+        audio.Play();
     }
 
     protected virtual void OnImpactGround(Collision collision)
@@ -53,8 +73,6 @@ public class CrashBehaviour : MonoBehaviour
         transform.DetachChildren();
         var rb = GetComponent<Rigidbody>();
         rb.AddExplosionForce(_explosionForce, transform.position, 10, 0.5f, ForceMode.Impulse);
-
-        Destroy(gameObject, _decayTime);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -69,10 +87,9 @@ public class CrashBehaviour : MonoBehaviour
             {
                 OnImpactGround(collision);
             }
-            else
-            {
-                Destroy(gameObject, _decayTime);
-            }
+
+            PlayImpactSound();
+            Destroy(gameObject, _decayTime);
         }
     }
 

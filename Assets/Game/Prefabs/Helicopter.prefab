@@ -186,7 +186,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -297,6 +297,7 @@ MonoBehaviour:
   _decayTime: 5
   _explosionForce: 2000
   _explodeOnGround: 1
+  _explosionSound: {fileID: 8300000, guid: 366f5e75189f34546a1cc7b47755c8d0, type: 3}
 --- !u!114 &5635545399721240197
 MonoBehaviour:
   m_ObjectHideFlags: 0

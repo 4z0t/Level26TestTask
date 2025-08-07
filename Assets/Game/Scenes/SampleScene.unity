@@ -394,6 +394,10 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 2146768839}
+    - target: {fileID: 1437940617992835439, guid: 2666ff01b27d05b42b0db7358f10b6ce, type: 3}
+      propertyPath: _explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 366f5e75189f34546a1cc7b47755c8d0, type: 3}
     - target: {fileID: 4833190652692145988, guid: 2666ff01b27d05b42b0db7358f10b6ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 57.109207
